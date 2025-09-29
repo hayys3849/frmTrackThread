@@ -30,11 +30,6 @@ namespace frmTrackThread
             threadC.Name = "ThreadC";
             threadD.Name = "ThreadD";
 
-            threadA.Start();
-            threadB.Start();
-            threadC.Start();
-            threadD.Start();
-
             threadA.Priority = ThreadPriority.Highest;
 
             threadB.Priority = ThreadPriority.Normal;
@@ -43,7 +38,26 @@ namespace frmTrackThread
 
             threadD.Priority = ThreadPriority.BelowNormal;
 
-            Thread.Join
+            threadA.Start();
+            threadB.Start();
+            threadC.Start();
+            threadD.Start();
+
+            threadA.Join();
+            threadB.Join();
+            threadC.Join();
+            threadD.Join();
+
+
+            
+
+            label1.Text = "End of Thread";
+
+           
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
         }
     }
